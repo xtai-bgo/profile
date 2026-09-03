@@ -52,23 +52,25 @@
   }
   .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.92rem;color:var(--slate)}
   .hero-meta a{text-decoration:none;border-bottom:1px solid var(--rule)}
-  .hero-grid{display:grid;gap:36px;align-items:end}
+  .hero-grid{display:grid;gap:44px;align-items:center}
   @media(min-width:760px){
-    .hero-grid{grid-template-columns:minmax(0,1fr) 300px;gap:56px}
+    .hero-grid{grid-template-columns:minmax(0,1fr) 300px;gap:80px}
     .hero-grid .portrait{grid-column:2;grid-row:1;justify-self:end}
     .hero-grid .hero-text{grid-column:1;grid-row:1}
   }
   .portrait{
-    position:relative;margin:0;width:100%;max-width:180px;aspect-ratio:4/5;
-    background:var(--paper-2);border:1px solid var(--rule);border-radius:2px;overflow:hidden
+    position:relative;isolation:isolate;margin:0 18px 18px 0;width:100%;max-width:200px;aspect-ratio:4/5
   }
   @media(min-width:760px){.portrait{max-width:300px}}
-  .portrait::before{
-    content:"XT";position:absolute;inset:0;display:grid;place-items:center;
-    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:4.5rem;
-    letter-spacing:-.04em;color:var(--rule)
+  .portrait img{
+    display:block;width:100%;height:100%;object-fit:cover;border-radius:3px;
+    filter:saturate(.88) contrast(1.03);
+    box-shadow:0 30px 50px -28px rgba(16,50,47,.5),0 2px 8px rgba(16,50,47,.12)
   }
-  .portrait img{position:relative;display:block;width:100%;height:100%;object-fit:cover}
+  .portrait::after{
+    content:"";position:absolute;inset:0;transform:translate(18px,18px);
+    border:1.5px solid var(--ochre);border-radius:3px;z-index:-1;pointer-events:none
+  }
 
   /* ---------- photographs ---------- */
   .cap .ill{display:block;width:calc(100% + 52px);height:auto;margin:-28px -26px 20px;aspect-ratio:2/1;object-fit:cover;background:var(--rule)}
@@ -143,7 +145,7 @@
 <header>
   <svg class="contours" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <g fill="none" stroke="#10322F" stroke-opacity=".16" stroke-width="1">
-      <g transform="translate(880 250)">
+      <g transform="translate(1010 300)">
         <path d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
         <path transform="scale(.86)" d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
         <path transform="scale(.72)" d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
@@ -161,8 +163,7 @@
 
   <div class="wrap hero hero-grid">
     <figure class="portrait">
-      <!-- Drop your photo at assets/portrait.jpg (portrait orientation, ~800×1000px). Until then the initials tile shows. -->
-      <img src="assets/portrait.jpg" alt="Portrait of Xue-Cheng Tai" onerror="this.remove()">
+      <img src="assets/portrait.jpg" alt="Portrait of Xue-Cheng Tai" width="800" height="1000">
     </figure>
     <div class="hero-text">
       <p class="role">Chief Scientist · NORCE Norwegian Research Centre</p>
