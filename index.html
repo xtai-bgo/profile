@@ -52,6 +52,28 @@
   }
   .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.92rem;color:var(--slate)}
   .hero-meta a{text-decoration:none;border-bottom:1px solid var(--rule)}
+  .hero-grid{display:grid;gap:36px;align-items:end}
+  @media(min-width:760px){
+    .hero-grid{grid-template-columns:minmax(0,1fr) 300px;gap:56px}
+    .hero-grid .portrait{grid-column:2;grid-row:1;justify-self:end}
+    .hero-grid .hero-text{grid-column:1;grid-row:1}
+  }
+  .portrait{
+    position:relative;margin:0;width:100%;max-width:180px;aspect-ratio:4/5;
+    background:var(--paper-2);border:1px solid var(--rule);border-radius:2px;overflow:hidden
+  }
+  @media(min-width:760px){.portrait{max-width:300px}}
+  .portrait::before{
+    content:"XT";position:absolute;inset:0;display:grid;place-items:center;
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:4.5rem;
+    letter-spacing:-.04em;color:var(--rule)
+  }
+  .portrait img{position:relative;display:block;width:100%;height:100%;object-fit:cover}
+
+  /* ---------- photographs ---------- */
+  .cap .ill{display:block;width:calc(100% + 52px);height:auto;margin:-28px -26px 20px;aspect-ratio:2/1;object-fit:cover;background:var(--rule)}
+  .sectors .pic{display:block;width:calc(100% + 48px);height:auto;margin:-26px -24px 18px;aspect-ratio:3/2;object-fit:cover;background:var(--rule)}
+  .cap,.sectors li{overflow:hidden}
 
   /* ---------- sections ---------- */
   section{padding:66px 0;border-bottom:1px solid var(--rule)}
@@ -137,15 +159,21 @@
     </g>
   </svg>
 
-  <div class="wrap hero">
-    <p class="role">Chief Scientist · NORCE Norwegian Research Centre</p>
-    <h1>Xue-Cheng Tai</h1>
-    <p class="thesis">I build the mathematics that makes heavy computation fast enough to use — in imaging, simulation and industrial data.</p>
-    <div class="hero-meta">
-      <span>Bergen, Norway</span>
-      <a href="mailto:xtai@norceresearch.no">xtai@norceresearch.no</a>
-      <a href="tel:+4756107830">+47 56 10 78 30</a>
-      <span>SIAM Fellow, 2026</span>
+  <div class="wrap hero hero-grid">
+    <figure class="portrait">
+      <!-- Drop your photo at assets/portrait.jpg (portrait orientation, ~800×1000px). Until then the initials tile shows. -->
+      <img src="assets/portrait.jpg" alt="Portrait of Xue-Cheng Tai" onerror="this.remove()">
+    </figure>
+    <div class="hero-text">
+      <p class="role">Chief Scientist · NORCE Norwegian Research Centre</p>
+      <h1>Xue-Cheng Tai</h1>
+      <p class="thesis">I build the mathematics that makes heavy computation fast enough to use — in imaging, simulation and industrial data.</p>
+      <div class="hero-meta">
+        <span>Bergen, Norway</span>
+        <a href="mailto:xtai@norceresearch.no">xtai@norceresearch.no</a>
+        <a href="tel:+4756107830">+47 56 10 78 30</a>
+        <span>SIAM Fellow, 2026</span>
+      </div>
     </div>
   </div>
 </header>
@@ -157,21 +185,25 @@
 
   <div class="caps">
     <div class="cap">
+      <img class="ill" src="assets/cap-imaging.jpg" alt="Sheet of MRI brain slices on a light box" width="1200" height="600" loading="lazy">
       <h3>Seeing what the sensor cannot show</h3>
       <p>Denoising, sharpening, segmentation and 3D reconstruction of images and scans — including cases with heavy noise, missing data or only a single projection. Methods that mark out an object and measure it reliably, not just make the picture look better.</p>
       <span class="for">Medical scans · inspection · microscopy · remote sensing</span>
     </div>
     <div class="cap">
+      <img class="ill" src="assets/cap-inverse.jpg" alt="Steeply tilted layers of sedimentary rock" width="1200" height="600" loading="lazy">
       <h3>Inferring what you cannot measure directly</h3>
       <p>Inverse problems: recovering material properties, sources, permeabilities or geometry from indirect measurements, with methods that hold up when the answer is discontinuous and the data are incomplete.</p>
       <span class="for">Subsurface · process monitoring · non-destructive testing</span>
     </div>
     <div class="cap">
+      <img class="ill" src="assets/cap-simulation.jpg" alt="Rendered swirl of blue and orange fluid flow" width="1200" height="600" loading="lazy">
       <h3>Simulation that runs in minutes, not days</h3>
       <p>Fast solvers for partial differential equations — splitting, multigrid and domain decomposition — plus physics-informed neural networks used as surrogates when the full simulation is too slow for the decision you need to make.</p>
       <span class="for">Flow · furnaces · blood flow · design optimisation</span>
     </div>
     <div class="cap">
+      <img class="ill" src="assets/cap-ml.jpg" alt="Blackboard densely covered in mathematical derivations" width="1200" height="600" loading="lazy">
       <h3>Machine learning you can explain</h3>
       <p>Deep networks that come with a mathematical account of why they work, and where you can build physical constraints and known geometry directly into the architecture. Useful when a black-box model is not acceptable to a regulator or a customer.</p>
       <span class="for">Certification · safety-critical AI · scarce training data</span>
@@ -216,12 +248,24 @@
   <h2>Models that learn from your data, obey the physics, and run fast enough to act on</h2>
   <p class="lede">The approach I am developing now joins classical numerical mathematics with modern machine learning. Models that can be audited, that work on small datasets, and that answer in time for a live decision. That opens problems that were out of reach a few years ago.</p>
   <ul class="sectors">
-    <li><b>Digital twins that keep pace</b><span>Physics-informed models that update from live sensor data — furnaces, reservoirs, pipelines, power systems, patients.</span></li>
-    <li><b>Inspection without the bottleneck</b><span>Detect, delineate and measure defects, anomalies or lesions in images, video and scans, with a confidence level rather than a bare label.</span></li>
-    <li><b>Decisions on incomplete data</b><span>Recover what your sensors cannot see directly, and know how far to trust the answer.</span></li>
-    <li><b>AI you can certify</b><span>Networks with physical and geometric constraints built in, trained on small datasets, explainable to regulators and customers.</span></li>
-    <li><b>Design at speed</b><span>Simulation surrogates that let engineers test hundreds of variants in the time one full run used to take.</span></li>
-    <li><b>One picture from many sources</b><span>Fusion of satellite, drone, AIS and in-situ sensor data for monitoring oceans, energy assets and infrastructure.</span></li>
+    <li>
+      <img class="pic" src="assets/sec-twin.jpg" alt="Engineer checking equipment in a modern process plant" width="900" height="600" loading="lazy">
+      <b>Digital twins that keep pace</b><span>Physics-informed models that update from live sensor data — furnaces, reservoirs, pipelines, power systems, patients.</span></li>
+    <li>
+      <img class="pic" src="assets/sec-inspection.jpg" alt="Wind turbine blades seen from the tower base" width="900" height="600" loading="lazy">
+      <b>Inspection without the bottleneck</b><span>Detect, delineate and measure defects, anomalies or lesions in images, video and scans, with a confidence level rather than a bare label.</span></li>
+    <li>
+      <img class="pic" src="assets/sec-data.jpg" alt="Ship's bridge with sonar and radar screens" width="900" height="600" loading="lazy">
+      <b>Decisions on incomplete data</b><span>Recover what your sensors cannot see directly, and know how far to trust the answer.</span></li>
+    <li>
+      <img class="pic" src="assets/sec-certify.jpg" alt="Two clinicians reviewing medical images on monitors" width="900" height="600" loading="lazy">
+      <b>AI you can certify</b><span>Networks with physical and geometric constraints built in, trained on small datasets, explainable to regulators and customers.</span></li>
+    <li>
+      <img class="pic" src="assets/sec-design.jpg" alt="Turning vanes inside a NASA wind tunnel" width="900" height="600" loading="lazy">
+      <b>Design at speed</b><span>Simulation surrogates that let engineers test hundreds of variants in the time one full run used to take.</span></li>
+    <li>
+      <img class="pic" src="assets/sec-fusion.jpg" alt="Satellite in orbit above a coastline" width="900" height="600" loading="lazy">
+      <b>One picture from many sources</b><span>Fusion of satellite, drone, AIS and in-situ sensor data for monitoring oceans, energy assets and infrastructure.</span></li>
   </ul>
   <p class="lede" style="margin-top:28px">So far this has served energy and metals, health, maritime, earth observation and manufacturing. The mathematics does not mind which sector comes next.</p>
 </div></section>
@@ -275,7 +319,7 @@
       <div><span>Publications</span><a href="https://scholar.google.com/citations?user=09Jag9sAAAAJ&amp;hl=en">Google Scholar</a> · <a href="https://www.researchgate.net/profile/Xue-Cheng-Tai">ResearchGate</a> · <a href="https://research.com/u/xue-cheng-tai">Research.com</a> · <a href="https://nva.sikt.no/research-profile/14166">NVA</a> · <a href="https://www.norceresearch.no/en/persons/xue-cheng-tai/36095434">NORCE profile</a></div>
     </div>
   </div>
-  <footer class="wrap" style="padding-left:0;padding-right:0">NORCE Norwegian Research Centre · Division of Energy and Technology · Digital Systems research group</footer>
+  <footer class="wrap" style="padding-left:0;padding-right:0">NORCE Norwegian Research Centre · Division of Energy and Technology · Digital Systems research group · Photographs via <a href="https://unsplash.com/license">Unsplash</a></footer>
 </div>
 
 <script>
