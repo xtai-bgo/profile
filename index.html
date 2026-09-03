@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xue-Cheng Tai — Chief Scientist, NORCE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDF1F2;
+    --paper-2:#F7FAFA;
+    --ink:#10322F;
+    --slate:#4E6462;
+    --flow:#1B6CA8;
+    --ochre:#B9761A;
+    --rule:#C9D6D6;
+    --measure:70ch;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",-apple-system,Segoe UI,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;font-weight:800;line-height:1.05;margin:0}
+  a{color:var(--flow)}
+  a:focus-visible,button:focus-visible{outline:2.5px solid var(--ochre);outline-offset:3px}
+
+  /* ---------- eyebrow / labels ---------- */
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--slate);margin:0 0 14px
+  }
+
+  /* ---------- hero ---------- */
+  header{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+  .contours{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .hero{position:relative;padding:80px 28px 64px}
+  .hero h1{font-size:clamp(2.6rem,7vw,5rem);letter-spacing:-.025em}
+  .hero .role{
+    font-family:"IBM Plex Mono",monospace;font-size:.82rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ochre);margin:0 0 20px
+  }
+  .thesis{
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:400;
+    font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.35;
+    max-width:34ch;margin:26px 0 0;color:var(--ink)
+  }
+  .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.92rem;color:var(--slate)}
+  .hero-meta a{text-decoration:none;border-bottom:1px solid var(--rule)}
+
+  /* ---------- sections ---------- */
+  section{padding:66px 0;border-bottom:1px solid var(--rule)}
+  section h2{font-size:clamp(1.5rem,3.2vw,2.1rem);letter-spacing:-.015em;max-width:26ch}
+  .lede{max-width:var(--measure);color:var(--slate);margin:18px 0 0}
+
+  /* ---------- capability list ---------- */
+  .caps{margin-top:40px;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  @media(min-width:760px){.caps{grid-template-columns:1fr 1fr}}
+  .cap{background:var(--paper-2);padding:28px 26px}
+  .cap h3{font-size:1.1rem;letter-spacing:-.01em}
+  .cap p{margin:10px 0 0;font-size:.96rem;color:var(--slate)}
+  .cap .for{
+    display:block;margin-top:14px;font-family:"IBM Plex Mono",monospace;
+    font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ochre)
+  }
+
+  /* ---------- track record ---------- */
+  .record{margin-top:38px;display:grid;gap:26px}
+  @media(min-width:860px){.record{grid-template-columns:1fr 1fr}}
+  .item{padding-left:20px;border-left:3px solid var(--flow)}
+  .item h3{font-size:1rem;font-family:"IBM Plex Sans",sans-serif;font-weight:600}
+  .item p{margin:6px 0 0;font-size:.95rem;color:var(--slate)}
+
+  /* ---------- sectors ---------- */
+  .sectors{margin-top:36px;list-style:none;padding:0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  @media(min-width:760px){.sectors{grid-template-columns:repeat(3,1fr)}}
+  .sectors li{display:block;background:var(--paper-2);padding:26px 24px 28px}
+  .sectors b{display:block;font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;font-weight:800;font-size:1.05rem;line-height:1.2;letter-spacing:-.01em;margin-bottom:10px}
+  .sectors span{display:block;color:var(--slate);font-size:.95rem}
+
+  /* ---------- engage ---------- */
+  .engage{margin-top:38px;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  @media(min-width:760px){.engage{grid-template-columns:repeat(2,1fr)}}
+  .mode{background:var(--paper-2);padding:28px 26px}
+  .mode h3{font-size:1.1rem;letter-spacing:-.01em}
+  .mode p{margin:10px 0 0;font-size:.96rem;color:var(--slate)}
+
+  /* ---------- figures strip ---------- */
+  .figures{display:flex;flex-wrap:wrap;gap:34px 56px;margin-top:34px}
+  .fig .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.1rem;letter-spacing:-.03em;display:block}
+  .fig .l{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)}
+
+  /* ---------- contact ---------- */
+  .contact{padding:66px 28px 80px;border-bottom:0}
+  .card{background:var(--ink);color:var(--paper-2);padding:38px 34px;border-radius:2px}
+  .card h2{color:var(--paper-2)}
+  .card a{color:#8FC7EA}
+  .rows{margin-top:26px;display:grid;gap:14px;font-size:.96rem}
+  @media(min-width:760px){.rows{grid-template-columns:1fr 1fr}}
+  .rows div span{
+    display:block;font-family:"IBM Plex Mono",monospace;font-size:.7rem;
+    letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:2px
+  }
+  footer{padding:26px 0 46px;font-size:.82rem;color:var(--slate)}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="contours" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#10322F" stroke-opacity=".16" stroke-width="1">
+      <g transform="translate(880 250)">
+        <path d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
+        <path transform="scale(.86)" d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
+        <path transform="scale(.72)" d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
+        <path transform="scale(.58)" d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
+        <path transform="scale(.44)" d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
+        <path transform="scale(.3)" stroke="#B9761A" stroke-opacity=".55" d="M0-206C86-206 176-146 190-56 204 34 150 128 58 176-34 224-140 200-182 122-224 44-190-70-124-142-88-182-44-206 0-206Z"/>
+      </g>
+      <g transform="translate(1170 470)">
+        <path d="M0-150C70-150 130-96 130-26 130 44 74 104 4 104-66 104-126 44-126-26-126-96-70-150 0-150Z"/>
+        <path transform="scale(.7)" d="M0-150C70-150 130-96 130-26 130 44 74 104 4 104-66 104-126 44-126-26-126-96-70-150 0-150Z"/>
+        <path transform="scale(.4)" d="M0-150C70-150 130-96 130-26 130 44 74 104 4 104-66 104-126 44-126-26-126-96-70-150 0-150Z"/>
+      </g>
+    </g>
+  </svg>
+
+  <div class="wrap hero">
+    <p class="role">Chief Scientist · NORCE Norwegian Research Centre</p>
+    <h1>Xue-Cheng Tai</h1>
+    <p class="thesis">I build the mathematics that makes heavy computation fast enough to use — in imaging, simulation and industrial data.</p>
+    <div class="hero-meta">
+      <span>Bergen, Norway</span>
+      <a href="mailto:xtai@norceresearch.no">xtai@norceresearch.no</a>
+      <a href="tel:+4756107830">+47 56 10 78 30</a>
+      <span>SIAM Fellow, 2026</span>
+    </div>
+  </div>
+</header>
+
+<section class="reveal"><div class="wrap">
+  <p class="eyebrow">What I work on</p>
+  <h2>Four kinds of problem I am usually brought in to solve</h2>
+  <p class="lede">Most industrial questions I see reduce to one of these. If yours looks like any of them, a short conversation is usually enough to tell whether the maths can help.</p>
+
+  <div class="caps">
+    <div class="cap">
+      <h3>Seeing what the sensor cannot show</h3>
+      <p>Denoising, sharpening, segmentation and 3D reconstruction of images and scans — including cases with heavy noise, missing data or only a single projection. Methods that mark out an object and measure it reliably, not just make the picture look better.</p>
+      <span class="for">Medical scans · inspection · microscopy · remote sensing</span>
+    </div>
+    <div class="cap">
+      <h3>Inferring what you cannot measure directly</h3>
+      <p>Inverse problems: recovering material properties, sources, permeabilities or geometry from indirect measurements, with methods that hold up when the answer is discontinuous and the data are incomplete.</p>
+      <span class="for">Subsurface · process monitoring · non-destructive testing</span>
+    </div>
+    <div class="cap">
+      <h3>Simulation that runs in minutes, not days</h3>
+      <p>Fast solvers for partial differential equations — splitting, multigrid and domain decomposition — plus physics-informed neural networks used as surrogates when the full simulation is too slow for the decision you need to make.</p>
+      <span class="for">Flow · furnaces · blood flow · design optimisation</span>
+    </div>
+    <div class="cap">
+      <h3>Machine learning you can explain</h3>
+      <p>Deep networks that come with a mathematical account of why they work, and where you can build physical constraints and known geometry directly into the architecture. Useful when a black-box model is not acceptable to a regulator or a customer.</p>
+      <span class="for">Certification · safety-critical AI · scarce training data</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <p class="eyebrow">Track record</p>
+  <h2>Algorithms that left the paper and went into use</h2>
+
+  <div class="record">
+    <div class="item">
+      <h3>Additive Operator Splitting (AOS)</h3>
+      <p>A co-invented scheme that turns a stiff nonlinear image-processing problem into independent one-dimensional pieces. Fast, stable, easy to parallelise — now standard in PDE-based image processing.</p>
+    </div>
+    <div class="item">
+      <h3>Split Bregman</h3>
+      <p>Developed with Stanley Osher (UCLA). One of the most widely used ways to solve total-variation and sparse-recovery problems; the backbone of many practical reconstruction pipelines.</p>
+    </div>
+    <div class="item">
+      <h3>Piecewise Constant Level Set Method</h3>
+      <p>Represents several regions or materials with a single function, which makes multi-phase segmentation and shape identification tractable at industrial scale.</p>
+    </div>
+    <div class="item">
+      <h3>Provably fast solvers for constrained problems</h3>
+      <p>The first algorithm shown to reach the multigrid convergence rate on obstacle-type problems — a guarantee that runtime scales with problem size rather than exploding.</p>
+    </div>
+    <div class="item">
+      <h3>Blood-flow simulation without a mesh</h3>
+      <p>Physics-informed neural solvers for 3D flow in deformable vessels, built with medical-device partners. Removes the meshing step that usually makes patient-specific simulation impractical.</p>
+    </div>
+    <div class="item">
+      <h3>Explaining deep networks mathematically</h3>
+      <p>Recent work showing that U-Nets, encoder–decoder networks and transformers can be read as classical numerical methods — which turns architecture design from trial and error into engineering.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <p class="eyebrow">What this can do for your business</p>
+  <h2>Models that learn from your data, obey the physics, and run fast enough to act on</h2>
+  <p class="lede">The approach I am developing now joins classical numerical mathematics with modern machine learning. Models that can be audited, that work on small datasets, and that answer in time for a live decision. That opens problems that were out of reach a few years ago.</p>
+  <ul class="sectors">
+    <li><b>Digital twins that keep pace</b><span>Physics-informed models that update from live sensor data — furnaces, reservoirs, pipelines, power systems, patients.</span></li>
+    <li><b>Inspection without the bottleneck</b><span>Detect, delineate and measure defects, anomalies or lesions in images, video and scans, with a confidence level rather than a bare label.</span></li>
+    <li><b>Decisions on incomplete data</b><span>Recover what your sensors cannot see directly, and know how far to trust the answer.</span></li>
+    <li><b>AI you can certify</b><span>Networks with physical and geometric constraints built in, trained on small datasets, explainable to regulators and customers.</span></li>
+    <li><b>Design at speed</b><span>Simulation surrogates that let engineers test hundreds of variants in the time one full run used to take.</span></li>
+    <li><b>One picture from many sources</b><span>Fusion of satellite, drone, AIS and in-situ sensor data for monitoring oceans, energy assets and infrastructure.</span></li>
+  </ul>
+  <p class="lede" style="margin-top:28px">So far this has served energy and metals, health, maritime, earth observation and manufacturing. The mathematics does not mind which sector comes next.</p>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <p class="eyebrow">Working together</p>
+  <h2>Four ways partners usually start</h2>
+  <div class="engage">
+    <div class="mode">
+      <h3>Feasibility study</h3>
+      <p>A few weeks on your data to establish whether the problem is solvable and what accuracy is realistic, before you commit a budget.</p>
+    </div>
+    <div class="mode">
+      <h3>Contract research</h3>
+      <p>A defined algorithm or prototype delivered against your specification, with the option of a NORCE team around it.</p>
+    </div>
+    <div class="mode">
+      <h3>Co-funded projects</h3>
+      <p>Industry-partner role in Research Council of Norway, Horizon Europe and other schemes, where public funding carries much of the cost.</p>
+    </div>
+    <div class="mode">
+      <h3>People</h3>
+      <p>Co-supervised PhD or postdoc positions on your problem, and training for your engineers on the methods involved.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <p class="eyebrow">Background in numbers</p>
+  <h2>Thirty years of applied mathematics, mostly with partners outside academia</h2>
+  <div class="figures">
+    <div class="fig"><span class="n">250+</span><span class="l">Publications</span></div>
+    <div class="fig"><span class="n">13,000+</span><span class="l">Citations</span></div>
+    <div class="fig"><span class="n">16</span><span class="l">PhDs supervised</span></div>
+    <div class="fig"><span class="n">18</span><span class="l">Postdocs supervised</span></div>
+    <div class="fig"><span class="n">2026</span><span class="l">SIAM Fellow</span></div>
+  </div>
+  <p class="lede">PhD in applied mathematics, University of Jyväskylä (1991). Professor at the University of Bergen (1994–2021), Nanyang Technological University, Singapore (2007–2011), and Chair Professor and Head of Mathematics at Hong Kong Baptist University (2017–2022); Chief Research Scientist and Executive Program Director at COCHE, Hong Kong (2022–2023); Chief Scientist at NORCE since 2023. Feng Kang Prize for Scientific Computing (2009), Nanyang Award for Research Excellence (2011), Humboldt Scholarship (1993). Board member of NOBIM, the Norwegian association for image analysis and machine learning.</p>
+  <p class="lede" style="margin-top:22px">Editorial boards — work that keeps me current on what is actually working, well before it reaches textbooks or products: SIAM Journal on Numerical Analysis; SIAM Journal on Imaging Sciences; Journal of Mathematical Imaging and Vision; Inverse Problems and Imaging; East Asian Journal on Applied Mathematics; International Journal of Numerical Analysis and Modeling; Mathematical Foundations of Computing; Frontiers in Computer Science; Computer Methods in Biomechanics and Biomedical Engineering: Imaging &amp; Visualization. Editor in Chief of Advances in Continuous and Discrete Models (2021–2024); Executive Editor of Numerical Mathematics: Theory, Methods and Applications (2005–2021).</p>
+</div></section>
+
+<div class="wrap contact reveal">
+  <div class="card">
+    <p class="eyebrow" style="color:#8FA9A6">Get in touch</p>
+    <h2>Send me the problem, not a formal brief</h2>
+    <p style="max-width:var(--measure);opacity:.85;margin:16px 0 0">A short description of what you measure, what you need to know from it, and how fast you need the answer is enough for me to say whether this is worth pursuing — and to be honest with you if it is not.</p>
+    <div class="rows">
+      <div><span>Email</span><a href="mailto:xtai@norceresearch.no">xtai@norceresearch.no</a></div>
+      <div><span>Phone</span><a href="tel:+4756107830">+47 56 10 78 30</a></div>
+      <div><span>Visiting address</span>Fantoftvegen 38, 5072 Bergen, Norway</div>
+      <div><span>Publications</span><a href="https://scholar.google.com/citations?user=09Jag9sAAAAJ&amp;hl=en">Google Scholar</a> · <a href="https://www.researchgate.net/profile/Xue-Cheng-Tai">ResearchGate</a> · <a href="https://research.com/u/xue-cheng-tai">Research.com</a> · <a href="https://nva.sikt.no/research-profile/14166">NVA</a> · <a href="https://www.norceresearch.no/en/persons/xue-cheng-tai/36095434">NORCE profile</a></div>
+    </div>
+  </div>
+  <footer class="wrap" style="padding-left:0;padding-right:0">NORCE Norwegian Research Centre · Division of Energy and Technology · Digital Systems research group</footer>
+</div>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(e => e.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(e => io.observe(e));
+  }
+</script>
+</body>
+</html>
