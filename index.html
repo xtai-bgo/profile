@@ -52,6 +52,11 @@
   }
   .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.92rem;color:var(--slate)}
   .hero-meta a{text-decoration:none;border-bottom:1px solid var(--rule)}
+  .hero-links-label{margin:36px 0 8px}
+  .hero-links{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;font-size:.92rem}
+  .hero-links a{color:var(--flow);text-decoration:none;border-bottom:1px solid var(--rule)}
+  .hero-links a:hover{border-bottom-color:var(--flow)}
+  .hero-links span{color:var(--slate);opacity:.7}
   .hero-grid{display:grid;gap:44px;align-items:center}
   @media(min-width:760px){
     .hero-grid{grid-template-columns:minmax(0,1fr) 300px;gap:80px}
@@ -175,6 +180,14 @@
         <a href="tel:+4756107830">+47 56 10 78 30</a>
         <span>SIAM Fellow, 2026</span>
       </div>
+      <p class="eyebrow hero-links-label">Publications and full profile</p>
+      <nav class="hero-links" aria-label="Publications and profiles">
+        <a href="https://scholar.google.com/citations?user=09Jag9sAAAAJ&amp;hl=en">Google Scholar</a><span>·</span>
+        <a href="https://www.researchgate.net/profile/Xue-Cheng-Tai">ResearchGate</a><span>·</span>
+        <a href="https://research.com/u/xue-cheng-tai">Research.com</a><span>·</span>
+        <a href="https://nva.sikt.no/research-profile/14166">NVA</a><span>·</span>
+        <a href="https://www.norceresearch.no/en/persons/xue-cheng-tai/36095434">NORCE profile</a>
+      </nav>
     </div>
   </div>
 </header>
